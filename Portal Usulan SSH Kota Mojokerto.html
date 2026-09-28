@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portal Usulan SSH Kota Mojokerto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EFEDE9;--card:#FFFFFF;--ink:#2A1B17;--muted:#6B5A54;--line:#DDD5CE;
+  --brick:#8C2B1C;--brick-dk:#6E2015;--gold:#D4A73A;--gold-ink:#6B4E0A;--soft:#F7F1EA;--fbtn:#8C2B1C;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#191311;--card:#241B18;--ink:#F1E8E2;--muted:#B7A69E;--line:#3A2D28;--brick:#B8432F;--gold-ink:#E6C26A;--soft:#2E2320;--fbtn:#E6C26A}}
+:root[data-theme="dark"]{
+  --bg:#191311;--card:#241B18;--ink:#F1E8E2;--muted:#B7A69E;--line:#3A2D28;--brick:#B8432F;--gold-ink:#E6C26A;--soft:#2E2320;--fbtn:#E6C26A}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.hero{background-color:#7A2216;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='48'%3E%3Cpath d='M0 24h72M0 0h72M36 0v24M0 24v24M72 24v24' stroke='%23000' stroke-opacity='.17' stroke-width='2' fill='none'/%3E%3C/svg%3E");color:#fff;border-bottom:6px solid var(--gold);position:relative;overflow:hidden}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding-top:44px;padding-bottom:40px}
+.tagline{margin:0 0 8px;color:#F0D082;font:400 1.1rem "Marcellus",Georgia,serif;letter-spacing:.04em}
+h1{margin:0 0 14px;font:400 clamp(2rem,5.5vw,3.4rem)/1.08 "Marcellus",Georgia,serif}
+.lead{margin:0 0 20px;max-width:56ch;color:#F6E7E1;font-size:1.05rem}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.steps li{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.25);padding:6px 14px 6px 6px;border-radius:999px;font-size:.95rem}
+.steps b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#3A2705;font-size:.85rem}
+#sun{width:min(240px,26vw);color:var(--gold);filter:drop-shadow(0 2px 0 rgba(0,0,0,.25))}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 0}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.search{flex:1 1 300px;position:relative}
+.search svg{position:absolute;left:14px;top:50%;width:20px;height:20px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.search input{width:100%;height:50px;padding:0 16px 0 44px;font:400 1.05rem "Source Sans 3",sans-serif;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px}
+.search input:focus{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--brick)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 16px;font:600 .95rem "Source Sans 3",sans-serif;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brick);border-color:var(--brick);color:#fff}
+.chip:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{padding:20px 0 40px}
+.count{margin:0 0 14px;color:var(--muted);font-size:.95rem}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px}
+.card{display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--line);border-top:6px solid var(--brick);border-radius:4px 4px 14px 14px;padding:18px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.no{display:grid;place-items:center;min-width:44px;height:44px;padding:0 8px;border-radius:50%;background:var(--soft);border:2px solid var(--gold);color:var(--gold-ink);font:400 1.15rem "Marcellus",Georgia,serif}
+.tag{font-size:.85rem;font-weight:600;color:var(--muted)}
+.name{margin:0;font:400 1.25rem/1.3 "Marcellus",Georgia,serif}
+.acts{display:grid;gap:10px;margin-top:auto;padding-top:4px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:8px 14px;border-radius:10px;font:700 1rem/1.2 "Source Sans 3",sans-serif;text-decoration:none;text-align:center;border:2px solid var(--brick)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.sheet{background:var(--brick);color:#fff}
+.btn.sheet:hover{background:var(--brick-dk)}
+.btn.folder{background:transparent;color:var(--fbtn);border-color:var(--fbtn)}
+.btn.folder:hover{background:var(--soft)}
+.empty{grid-column:1/-1;padding:40px 16px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:12px}
+footer{background:#7A2216;color:#F6E7E1;border-top:6px solid var(--gold);padding:22px 0 26px;font-size:.95rem}
+footer strong{font:400 1.1rem "Marcellus",Georgia,serif;color:#F0D082}
+@media (max-width:720px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:28px;padding-bottom:28px}
+  #sun{position:absolute;right:-40px;top:-30px;width:170px;opacity:.28}
+  .chips{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:4px}
+  .chip{flex:none}
+}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(60,20,10,.14)}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div>
+    <p class="tagline">Spirit of Majapahit</p>
+    <h1>Usulan SSH<br>Kota Mojokerto</h1>
+    <p class="lead">Temukan OPD Anda, isi usulan di Google Sheet, lalu unggah dokumen pendukung ke folder yang tersedia.</p>
+    <ol class="steps"><li><b>1</b>Cari OPD</li><li><b>2</b>Isi usulan</li><li><b>3</b>Upload file dukung</li></ol>
+  </div>
+  <div id="sun" aria-hidden="true"></div>
+</div></header>
+<div class="bar"><div class="wrap">
+  <label class="search">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+    <input id="q" type="search" placeholder="Cari nama OPD atau nomor" autocomplete="off" aria-label="Cari OPD">
+  </label>
+  <div class="chips" id="chips" role="group" aria-label="Filter jenis OPD"></div>
+</div></div>
+<main><div class="wrap">
+  <p class="count" id="count" aria-live="polite"></p>
+  <ul class="grid" id="list"></ul>
+</div></main>
+<footer><div class="wrap"><strong>Spirit of Majapahit</strong><br>Untuk mengunggah file dukung, masuk dengan akun Google yang sudah diberi akses ke folder OPD Anda. Semua tautan terbuka di tab baru.</div></footer>
+<script>
+const DATA=[{"no":"01","nama":"Sekretariat DPRD","sheet":"https://docs.google.com/spreadsheets/d/14qWjRoxdu67252RUEFL9E7kMdq24EIDFkE3HaJynaAA/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/10n1_y0WCQydMH7r6U2SNhVsE9WR-uX9O"},{"no":"02","nama":"Sekretariat Daerah","sheet":"https://docs.google.com/spreadsheets/d/1k7xBw2doGt-ON4b5hxdWmpaOK1QBC9M1ev6MK9Vup4M/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1ypySyyXijPoS9rZm_C6iCwf0fpHNLXzJ"},{"no":"03","nama":"RSUD Dr. Wahidin Sudiro Husodo","sheet":"https://docs.google.com/spreadsheets/d/1MONcR71n4AMhD7RlimEcQ_R4xVpQFDGdDcM_bShcXz8/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1UNAvsfVclFuVGWthH0niUd3o7R47ZFdO"},{"no":"04","nama":"Dinas Pendidikan & Kebudayaan","sheet":"https://docs.google.com/spreadsheets/d/1AYyb3zXOkUjFyYdMtN0YQTZznxgmmZlpTvAw4DxOFtw/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1A11M_WrFtjE6L2ME6f-pp207y3E40GSV"},{"no":"05","nama":"Dinas Sosial Pemberdayaan Perempuan & Perlindungan Anak","sheet":"https://docs.google.com/spreadsheets/d/1IOMnyBcVu23wjMV6VyRa1Jp1jq3iyme4RZmekzWZN14/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/135yVvSVeETd4Nin5DImVa9UlpkaHtlrL"},{"no":"06","nama":"Dinas Kependudukan dan Pencatatan Sipil","sheet":"https://docs.google.com/spreadsheets/d/1QcAcB9D5p79ajTOsDM3QK6GVVgSRZVzQJG1eTzJtZFg/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1AIZCn8RE97bVgudcFmlOTwEE3Rrvo8wD"},{"no":"07","nama":"Dinas Kesehatan, Pengendalian Penduduk & Keluarga Berencana","sheet":"https://docs.google.com/spreadsheets/d/142e72F-MGdMqB8Rr5OyDc_QQAPpa15wny0iuss4I3q4/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1TxQi9JpYP90N5KSeKG3GDmSlBt6pHbgP"},{"no":"08","nama":"Dinas Ketahanan Pangan dan Pertanian","sheet":"https://docs.google.com/spreadsheets/d/1IyO-x7r1ekU_k8j7UYDfUn3jh6EhIsEm6zlTrGWZ7I4/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/18lZc9mU9-dfwGZaynjwhqbRZj6ABZqTf"},{"no":"09","nama":"Dinas Koperasi UKM, Perindustrian dan Perdagangan","sheet":"https://docs.google.com/spreadsheets/d/15f38NMq0rvv0u4QnnGFWaHljnmr6-uKQnoX3EB8Rk7s/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/11EUC4AGiC1LGcN4JwGqO19zdYO8Soygl"},{"no":"10","nama":"Badan Pengelolaan Keuangan dan Pendapatan Daerah","sheet":"https://docs.google.com/spreadsheets/d/15T3pzMR0ZSdYpg_ZQW0Nu-MM0-fCxHls3uBJ3T5_0QI/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1o1uttcOXts1inoz3l2QyGEpFlHdd4m8i"},{"no":"11","nama":"Dinas Penanaman Modal, Pelayanan Terpadu Satu Pintu dan Tenaga Kerja","sheet":"https://docs.google.com/spreadsheets/d/1HznSnoTo7Fkp4cXa_ZoA4WeEj7UdvgYpFsjo9EbNKCo/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1svMxWUxm__PHdj70nhOAIBC_0FiRSBz0"},{"no":"12","nama":"Inspektorat","sheet":"https://docs.google.com/spreadsheets/d/123YLOTBEL5f2ie1HLqr_xn4cfdhb6p0awkNdvxuVT1c/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1uIg0a1ymsI4o3aMeM_q6e5hmSDd-5BS1"},{"no":"13","nama":"Badan Perencanaan Riset dan Inovasi Daerah","sheet":"https://docs.google.com/spreadsheets/d/1LIkEp0TIGRElhBe132luHAFKC5IlcurriEeYnTqeIc0/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/11Xmwwvch2EFY8b86Nei-wM23aebPmffA"},{"no":"14","nama":"Dinas Pekerjaan Umum, Penataan Ruang, Perumahan Rakyat dan Kawasan Permukiman","sheet":"https://docs.google.com/spreadsheets/d/18lo8jL4Ycsj-JeYPhHeZmiiTP84h4uvykhvuAkU9Lao/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1HMeXMyIT5bzFTidMfkaBRaNXDRwa7vlv"},{"no":"15","nama":"Dinas Lingkungan Hidup","sheet":"https://docs.google.com/spreadsheets/d/1xBOiQD9zOxemGlNQYttH2d_uBGblFswDU3JaYvyqz0g/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1aSfggmA07PsXeJK5episbJnqj-ZK8W_6"},{"no":"16","nama":"Dinas Perhubungan","sheet":"https://docs.google.com/spreadsheets/d/1dTN6Hm6sUu2Zj5nrwFvrvqBU7wvwamTf-1HRLA7Y28Q/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/11EBfqpwWoi9iTMo9r5u8cSj5E-JNmghr"},{"no":"17","nama":"Badan Kesatuan Bangsa dan Politik","sheet":"https://docs.google.com/spreadsheets/d/1AcT-VMCKQyi_yYNb7fDFL8q0L0wYcoqip96nSBrr8j4/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1qKlIZzroSw68uRxbNt6znc_kWkA5qR8c"},{"no":"18","nama":"Satuan Polisi Pamong Praja","sheet":"https://docs.google.com/spreadsheets/d/10ITNKlbc0gdpU-9R6E_OAx51nt6E4457WSl5qiIBB_w/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1OPwZnuE7pND59xidKhRnxW1iel3e2nNH"},{"no":"19","nama":"Badan Kepegawaian & PSDM","sheet":"https://docs.google.com/spreadsheets/d/1XN4GckNcae86xzT-c8TtZa7tpgW2-LeMWD4jjBQGLbU/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1OwvfphMqpFe9Rhsy55YctyoJ1xCaPP2r"},{"no":"20","nama":"Dinas Perpustakaan dan Arsip","sheet":"https://docs.google.com/spreadsheets/d/1Phrj5tpK82oL6sOjD3Faei9Nkhf6Y7Skm4oTl04F9P8/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1umB2-RkdvSPepqeYWo4L7fDu1sBkCNhY"},{"no":"21","nama":"Dinas Komunikasi dan Informatika","sheet":"https://docs.google.com/spreadsheets/d/16z098SHgn57Zge6sIxT-5Wg9Mh893-buJXDWv46Zh5U/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1ZJyMfQLxuftrA89RtZfAMPIRW_S2vdNG"},{"no":"22","nama":"Dinas Kepemudaan, Olahraga dan Pariwisata","sheet":"https://docs.google.com/spreadsheets/d/1KQSpkxx5aPYUIzKM3mxF_tD4sk-zmcqmogZGKZsss3I/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1okxsjYGx4eCpAQldzHGAesr3Mkn-DsJS"},{"no":"23","nama":"Kecamatan Prajurit Kulon","sheet":"https://docs.google.com/spreadsheets/d/1g3FkRcP4GkD5PumYts9H4YgipAY80TcIUMbw4IJeXs0/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1JO_LmD3hj671qEJlm8Y0e1SHR0KuqSof"},{"no":"24","nama":"Kecamatan Magersari","sheet":"https://docs.google.com/spreadsheets/d/1rNb5LM3PizFgELTMjNgDxcA7Ne-GNUTFBvBbrJgxsjY/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1YQtmRoL3lL-ejHQAG_9XROytGYuHIsod"},{"no":"25","nama":"Kecamatan Kranggan","sheet":"https://docs.google.com/spreadsheets/d/13ynAt4GtOdZvISLtijRc9iORJl2RNlUfkbc7SwGQRV8/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/13WvwCHT6WJTVRY8EwM9hRdbWr_Sp2PTC"},{"no":"26","nama":"Badan Penanggulangan Bencana Daerah","sheet":"https://docs.google.com/spreadsheets/d/16Bbi-Ey6banJPJ4nJqC6yW0exKhNLxjZeKpv2UomsAE/edit?usp=drivesdk","folder":"https://drive.google.com/drive/folders/1afS3I7CFdXajqAgcFRoHOoHyFLu3i4Wp"}];
+const G={all:'Semua',dinas:'Dinas',badan:'Badan',kec:'Kecamatan',lain:'Lainnya'};
+const grp=n=>{n=n.toLowerCase();return n.startsWith('dinas')?'dinas':n.startsWith('badan')?'badan':n.startsWith('kecamatan')?'kec':'lain'};
+DATA.forEach(d=>d.g=grp(d.nama));
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+(function(){let r='';
+ for(let i=0;i<8;i++)r+='<path d="M-7 -30L0 -58L7 -30Z" transform="rotate('+i*45+')"/><path d="M-4 -30L0 -44L4 -30Z" transform="rotate('+(i*45+22.5)+')"/>';
+ document.getElementById('sun').innerHTML='<svg viewBox="-60 -60 120 120" width="100%" fill="currentColor"><circle r="17"/><circle r="24" fill="none" stroke="currentColor" stroke-width="2.5"/>'+r+'</svg>';})();
+const ICON={
+ sheet:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="2"/><path d="M2.5 8h15M2.5 12.5h15M8 2.5v15"/></svg>',
+ folder:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.2c0-.9.7-1.5 1.5-1.5h4l2 2.2h7c.8 0 1.5.7 1.5 1.5v7.4c0 .8-.7 1.5-1.5 1.5h-13c-.8 0-1.5-.7-1.5-1.5z"/></svg>'};
+let f='all';
+const chips=document.getElementById('chips'),q=document.getElementById('q'),list=document.getElementById('list'),count=document.getElementById('count');
+Object.keys(G).forEach(k=>{
+  const n=k==='all'?DATA.length:DATA.filter(d=>d.g===k).length;
+  if(!n)return;
+  const b=document.createElement('button');b.className='chip';b.type='button';b.dataset.k=k;
+  b.textContent=G[k]+' ('+n+')';
+  b.onclick=()=>{f=k;render()};
+  chips.appendChild(b);
+});
+function render(){
+  const t=q.value.trim().toLowerCase();
+  const rows=DATA.filter(d=>(f==='all'||d.g===f)&&(!t||(d.no+' '+d.nama).toLowerCase().includes(t)));
+  chips.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===f));
+  count.textContent=rows.length+' dari '+DATA.length+' OPD ditampilkan';
+  list.innerHTML=rows.length?rows.map(d=>
+    '<li class="card"><div class="top"><span class="no">'+d.no+'</span><span class="tag">'+G[d.g]+'</span></div>'+
+    '<h2 class="name">'+esc(d.nama)+'</h2><div class="acts">'+
+    '<a class="btn sheet" href="'+d.sheet+'" target="_blank" rel="noopener noreferrer" aria-label="Isi usulan '+esc(d.nama)+'">'+ICON.sheet+'Isi usulan (Google Sheet)</a>'+
+    '<a class="btn folder" href="'+d.folder+'" target="_blank" rel="noopener noreferrer" aria-label="Upload file dukung '+esc(d.nama)+'">'+ICON.folder+'Upload file dukung</a>'+
+    '</div></li>').join(''):
+    '<li class="empty">Tidak ada OPD yang cocok dengan "'+esc(q.value)+'". Periksa ejaan atau pilih filter Semua.</li>';
+}
+q.addEventListener('input',render);
+render();
+</script>
+</body>
+</html>
